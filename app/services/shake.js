@@ -48,7 +48,7 @@ export default Service.extend({
   /**
    * @method matchHandler
    */
-  matchHandler({ content }) {
+  matchHandler(content) {
     let contact = this.get('store').createRecord('contact', content);
     contact.save();
     this.set('waitProgress', null);
