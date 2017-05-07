@@ -1,4 +1,4 @@
-{{#paper-toolbar as |toolbar|}}
+{{#paper-toolbar warn=(not shake.connected) as |toolbar|}}
   {{#toolbar.tools}}
     <h2>ember-share</h2>
     <span class="flex"></span>
@@ -10,67 +10,6 @@
 
 <div class="app-container">
   <div class="app-container__content-holder">
-    <div class="layout-row layout-xs-column">
-      <div class="layout-column flex-xs flex-gt-xs-50">
-        {{#paper-card as |card|}}
-          {{#card.title as |title|}}
-            {{#title.text as |text|}}
-              {{#text.headline}}
-                {{paper-icon "recent actors"}} John Doe
-              {{/text.headline}}
-              {{#text.subhead}}Fake Corp.{{/text.subhead}}
-            {{/title.text}}
-          {{/card.title}}
-          {{#card.content}}
-            <p>
-              twitter: johndoe
-            </p>
-            <p>
-              Some more custom data
-            </p>
-          {{/card.content}}
-          {{#card.actions}}
-            {{#paper-button}}Delete{{/paper-button}}
-          {{/card.actions}}
-        {{/paper-card}}
-      </div>
-    </div>
-
-    <div class="layout-row layout-xs-column">
-      <div class="layout-column flex-xs flex-gt-xs-50">
-        {{#paper-card as |card|}}
-          {{#card.title as |title|}}
-            {{#title.text as |text|}}
-              {{#text.headline}}
-                {{paper-icon "recent actors"}} Johanna Doe
-              {{/text.headline}}
-              {{#text.subhead}}Super Corp.{{/text.subhead}}
-            {{/title.text}}
-          {{/card.title}}
-          {{#card.content}}
-            <p>
-              twitter: johanna
-            </p>
-            <p>
-              Some more custom data
-            </p>
-          {{/card.content}}
-          {{#card.actions}}
-            {{#paper-button}}Delete{{/paper-button}}
-          {{/card.actions}}
-        {{/paper-card}}
-      </div>
-    </div>
-
-    {{shake-detector}}
-
-    contact info: <br>
-    {{profile.firstName}} <br>
-    {{profile.lastName}} <br>
-    {{profile.email}} <br>
-    {{profile.twitter}}
-
-
-    {{x-shake model=profile}}
+    {{outlet}}
   </div>
 </div>

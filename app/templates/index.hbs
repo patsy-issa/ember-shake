@@ -1,0 +1,25 @@
+<div class="layout-row layout-xs-column">
+  <div class="layout-column flex-xs flex-gt-xs-50">
+    {{#each model as |item|}}
+      {{#paper-card as |card|}}
+        {{#card.title as |title|}}
+          {{#title.text as |text|}}
+            {{#text.headline}}
+              {{paper-icon "recent actors"}} {{item.fullName}}
+            {{/text.headline}}
+            {{#text.subhead}}
+              {{item.company}}
+            {{/text.subhead}}
+          {{/title.text}}
+        {{/card.title}}
+        {{#card.content}}
+          {{#if item.twitter}}<p>@{{item.twitter}}</p>{{/if}}
+          {{#if item.note}}<p>{{item.note}}</p>{{/if}}
+        {{/card.content}}
+        {{#card.actions}}
+          {{#paper-button}}Delete{{/paper-button}}
+        {{/card.actions}}
+      {{/paper-card}}
+    {{/each}}
+  </div>
+</div>
