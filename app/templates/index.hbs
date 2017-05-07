@@ -28,6 +28,11 @@
           <p>Can not get your location.</p>
           <p>Please make sure your location services are enabled for your browser and that you allow this website to access them.</p>
         </center>
+      {{else if shake.waitProgress}}
+        <center>
+          <h3>Waiting for contact</h3>
+          {{paper-progress-circular value=shake.waitProgress}}
+        </center>
       {{else}}
         <center>
           <p>Shake your phone<br />to share your contact</p>
