@@ -25,6 +25,8 @@ export default Service.extend({
    */
   connected: false,
 
+  hasLocation: false,
+
   /**
    * @property socketIOService
    * @type {SocketIO.Client}
@@ -36,6 +38,10 @@ export default Service.extend({
    * @method init
    */
   init() {
+    navigator.geolocation.getCurrentPosition(() => {
+      this.set('hasLocation', true);
+    });
+
     window.addEventListener('shake', this.shakeHandler.bind(this));
     let socket = this.get('socketIOService').socketFor(config.shake.server);
     socket.on('connect', this.connect, this);

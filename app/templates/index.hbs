@@ -22,10 +22,18 @@
         {{/card.actions}}
       {{/paper-card}}
     {{else}}
-      <center>
-        <p>Shake your phone<br />to share your contact</p>
-        <img src="/shake.jpg" title="Shake your phone" />
-      </center>
+      {{#if (not shake.hasLocation)}}
+        <center>
+          <h3>Location missing</h3>
+          <p>Can not get your location.</p>
+          <p>Please make sure your location services are enabled for your browser and that you allow this website to access them.</p>
+        </center>
+      {{else}}
+        <center>
+          <p>Shake your phone<br />to share your contact</p>
+          <img src="/shake.jpg" title="Shake your phone" />
+        </center>
+      {{/if}}
     {{/each}}
   </div>
 </div>

@@ -1,6 +1,8 @@
-{{#paper-toolbar warn=(not shake.connected) as |toolbar|}}
+{{#paper-toolbar warn=(or (not shake.connected) (not shake.hasLocation)) as |toolbar|}}
   {{#toolbar.tools}}
-    {{#if shake.connected}}
+    {{#if (not shake.hasLocation)}}
+      {{paper-icon "room" class="disconnected-icon"}}
+    {{else if shake.connected}}
       {{#paper-button mini=true aria-label="Shake" onClick=(action 'shake')}}
         {{paper-icon "vibration"}}
       {{/paper-button}}
