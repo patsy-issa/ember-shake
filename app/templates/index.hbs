@@ -21,6 +21,11 @@
           {{#paper-button onClick=(action 'delete' item) warn=true}}Delete{{/paper-button}}
         {{/card.actions}}
       {{/paper-card}}
+    {{else}}
+      <center>
+        <p>Shake your phone<br />to share your contact</p>
+        <img src="/shake.jpg" title="Shake your phone" />
+      </center>
     {{/each}}
   </div>
 </div>
