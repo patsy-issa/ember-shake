@@ -3,8 +3,12 @@ import config from 'ember-shake/config/environment';
 
 const {
   inject,
+  run,
   Service
 } = Ember;
+
+const TIMEOUT   = 5000;
+const TIME_STEP = TIMEOUT / 100; // Progress has 100 steps
 
 export default Service.extend({
   store: inject.service(),
@@ -47,6 +51,10 @@ export default Service.extend({
   matchHandler({ content }) {
     let contact = this.get('store').createRecord('contact', content);
     contact.save();
+    this.set('waitProgress', null);
+    if (this.get('_timer')) {
+      run.cancel(this.get('_timer'));
+    }
   },
 
   /**
@@ -61,9 +69,15 @@ export default Service.extend({
   },
 
   shakeHandler() {
+    if (this.get('waitProgress')) {
+      return;
+    }
+
+    this.set('waitProgress', 1);
+
     let socket = this.get('socketIOService').socketFor(config.shake.server);
 
-    navigator.geolocation.getCurrentPosition(function(position) {
+    navigator.geolocation.getCurrentPosition((position) => {
       let {
         coords: {
           latitude,
@@ -75,17 +89,28 @@ export default Service.extend({
       let payload = {
         latitude,
         longitude,
-        name: `John do ${randInt}`,
+        fullName: `John do ${randInt}`,
         twitter: `potato${randInt}`,
         company: `Potato ${randInt} GmbH`
       };
 
       socket.emit('shake', payload);
+
+      this.set('_timer', run.later(this, this._updateProgress, TIME_STEP));
     });
   },
 
   willDestroy() {
     window.removeEventListener('shake');
     return this._super(...arguments);
+  },
+
+  _updateProgress() {
+    this.incrementProperty('waitProgress');
+    if (this.get('waitProgress') > 100) {
+      this.set('waitProgress', null);
+    } else {
+      this.set('_timer', run.later(this, this._updateProgress, TIME_STEP));
+    }
   }
 });

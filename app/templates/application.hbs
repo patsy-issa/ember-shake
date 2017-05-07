@@ -15,6 +15,10 @@
   {{/toolbar.tools}}
 {{/paper-toolbar}}
 
+{{#if shake.waitProgress}}
+  {{paper-progress-linear value=shake.waitProgress}}
+{{/if}}
+
 <div class="app-container">
   <div class="app-container__content-holder">
     {{outlet}}
