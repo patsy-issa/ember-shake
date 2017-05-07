@@ -9,7 +9,7 @@ module.exports = function(environment) {
 
     shake: {
       server: 'https://ember-shake.herokuapp.com',
-      threshold: 25,
+      threshold: 20,
       timeout: 1000
     },
 
