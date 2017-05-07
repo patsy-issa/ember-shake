@@ -1,7 +1,7 @@
 {{#paper-toolbar warn=(not shake.connected) as |toolbar|}}
   {{#toolbar.tools}}
     {{#if shake.connected}}
-      {{#paper-button mini=true aria-label="Shake" action=(action 'shake')}}
+      {{#paper-button mini=true aria-label="Shake" onClick=(action 'shake')}}
         {{paper-icon "vibration"}}
       {{/paper-button}}
     {{else}}
