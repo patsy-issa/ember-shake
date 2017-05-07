@@ -32,7 +32,7 @@ export default Component.extend({
   },
 
   shakeHandler() {
-    let socket = this.get('socketIOService').socketFor('http://169.254.100.103:3000/');
+    let socket = this.get('socketIOService').socketFor(config.shake.server);
 
     // navigator.geolocation.getCurrentPosition(function({ latitude, longitude }) {
       socket.emit('shake', {
