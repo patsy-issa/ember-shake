@@ -1,5 +1,14 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<div class="app-container">
+  <div class="app-container__content-holder">
+    {{shake-detector}}
 
-{{outlet}}
+    contact info: <br>
+    {{profile.firstName}} <br>
+    {{profile.lastName}} <br>
+    {{profile.email}} <br>
+    {{profile.twitter}}
+
+
+    {{x-shake model=profile}}
+  </div>
+</div>

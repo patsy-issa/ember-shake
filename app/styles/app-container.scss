@@ -1,0 +1,14 @@
+.app-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container__navigation-holder {
+
+}
+
+.app-container__content-holder {
+  flex: 1;
+}

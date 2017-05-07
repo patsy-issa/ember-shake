@@ -1,5 +1,7 @@
 {
   "name": "ember-shake",
   "dependencies": {
+    "blob-polyfill": "^1.0.20150320",
+    "shake.js": "^1.2.2"
   }
 }
