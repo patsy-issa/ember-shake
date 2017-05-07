@@ -14,5 +14,11 @@ export default Controller.extend({
    */
   shake: inject.service(),
 
-  profile: storageFor('profile')
+  profile: storageFor('profile'),
+
+  actions: {
+    shake() {
+      this.get('shake').shakeHandler();
+    }
+  }
 });

@@ -1,5 +1,5 @@
 $primary: "green";
-$accent: "amber";
+$accent: "lime";
 $warn: "red";
 
 @import 'ember-paper';
@@ -9,4 +9,13 @@ $warn: "red";
 body, body > .ember-view {
   width: 100%;
   min-height: 100%;
+}
+
+md-toolbar.md-default-theme:not(.md-menu-toolbar) md-icon.disconnected-icon {
+  animation: blinker 1s linear infinite;
+  color: white;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
 }
