@@ -18,7 +18,7 @@
           {{#if item.note}}<p>{{item.note}}</p>{{/if}}
         {{/card.content}}
         {{#card.actions}}
-          {{#paper-button}}Delete{{/paper-button}}
+          {{#paper-button onClick=(action 'delete' item) warn=true}}Delete{{/paper-button}}
         {{/card.actions}}
       {{/paper-card}}
     {{/each}}
