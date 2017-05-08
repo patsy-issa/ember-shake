@@ -23,21 +23,23 @@
       {{/paper-card}}
     {{else}}
       {{#if (not shake.hasLocation)}}
-        <center>
-          <h3>Location missing</h3>
-          <p>Can not get your location.</p>
-          <p>Please make sure your location services are enabled for your browser and that you allow this website to access them.</p>
-        </center>
+        <div class="splash-notice">
+          <h3>Waiting for location</h3>
+          <p>Your location is required in order to locate the closest person to you. On certain devices this could take up to 20&nbsp;seconds.</p>
+          {{paper-progress-circular diameter=40}}
+          <small><em>Please make sure your location services are enabled for your browser and that you allow this app to access them.</em></small>
+        </div>
       {{else if shake.waitProgress}}
-        <center>
+        <div class="splash-notice">
           <h3>Waiting for contact</h3>
-          {{paper-progress-circular value=shake.waitProgress}}
-        </center>
+          {{paper-progress-circular value=shake.waitProgress diameter=96}}
+        </div>
       {{else}}
-        <center>
-          <p>Shake your phone<br />to share your contact</p>
+        <div class="splash-notice">
+          <h3>Shake your phone</h3>
+          <p>and share your business card</p>
           <img src="/shake.jpg" title="Shake your phone" />
-        </center>
+        </div>
       {{/if}}
     {{/each}}
   </div>

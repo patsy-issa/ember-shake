@@ -19,3 +19,12 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar) md-icon.disconnected-icon {
 @keyframes blinker {
   50% { opacity: 0; }
 }
+
+.splash-notice {
+  padding: 1rem;
+  text-align: center;
+
+  md-progress-circular {
+    margin: auto;
+  }
+}
