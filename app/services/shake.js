@@ -25,6 +25,14 @@ export default Service.extend({
    */
   connected: false,
 
+  /**
+   * @property hasLocation
+   * @type {Boolean}
+   * @default false
+   * @todo Change this to be `location` and holding the actual last location
+   * received. Then when trying to receive the location on shake wait 1 second
+   * for it, if not received then, use the last one.
+   */
   hasLocation: false,
 
   /**
