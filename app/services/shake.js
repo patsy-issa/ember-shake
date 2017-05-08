@@ -94,6 +94,7 @@ export default Service.extend({
     navigator.geolocation.getCurrentPosition((position) => {
       let {
         coords: {
+          accuracy,
           latitude,
           longitude
         }
@@ -101,6 +102,7 @@ export default Service.extend({
 
       let randInt = Math.floor(Math.random() * 100);
       let payload = {
+        accuracy,
         latitude,
         longitude,
         fullName: `John do ${randInt}`,
